@@ -4,6 +4,7 @@ global using dotnet_rpg_net7.Dtos.Character;
 global using AutoMapper;
 global using Microsoft.EntityFrameworkCore;
 global using dotnet_rpg_net7.Data;
+global using dotnet_rpg_net7.Services.FightService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
@@ -35,6 +36,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<IWeaponService, WeaponService>();
+builder.Services.AddScoped<IFightService, FightService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
